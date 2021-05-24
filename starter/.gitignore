@@ -10,7 +10,7 @@ build/
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/gradle.xml
- ../.idea/gradle.xml
+../.idea/gradle.xml
 /.idea/misc.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
@@ -22,7 +22,7 @@ build/
 
 # IntelliJ
  ../.DS_Store
- .idea/
+.idea/
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
