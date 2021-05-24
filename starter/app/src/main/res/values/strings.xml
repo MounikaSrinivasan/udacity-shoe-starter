@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="login_button">Login</string>
+    <string name="new_user_button">Sign Up</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email Address</string>
+    <string name="emailText">Email Address</string>
+    <string name="password_text">Password</string>
+    <string name="helloText">Hello User</string>
+    <string name="welcomeText">Welcome to the ShoeStore. \nShop the latest and greatest styles.</string>
+    <string name="proceed_button">Proceed</string>
+    <string name="instructions_text">Whether you call them shoes, sneakers, runners, trainers, or kicks, we have you covered with the latest footwear to fit your style.</string>
+    <string name="instructions_minor_text">Check out new arrivals from premium brands like Nike, adidas, Puma, Champion, Converse and more.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="proceed_to_shoe_details_screen">Proceed to Shoe Details screen</string>
+    <string name="logout">Logout</string>
+    <string name="name">Name :</string>
+    <string name="size">Size :</string>
+    <string name="brand_name">Brand :</string>
+    <string name="description">Description :</string>
+    <string name="logo">Logo</string>
+    <string name="dont_have_an_account">Don\'t have an account yet?</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="shoe_details">Details</string>
 </resources>

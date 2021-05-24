@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="MainVM"
+            type="com.udacity.shoestore.viewmodels.MainVM" />
+    </data>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,4 +28,16 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:id="@+id/nav_host_fragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation"/>
+
+
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
