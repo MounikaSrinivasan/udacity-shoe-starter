@@ -1,39 +1,78 @@
 package com.udacity.shoestore.viewmodels
 
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.navigation.findNavController
-import com.udacity.shoestore.R
 import com.udacity.shoestore.models.Shoe
-import com.udacity.shoestore.utils.ShoeActionHandler
 
 class ShoeViewModel : ViewModel() {
 
-    private  var _shoesList: MutableLiveData<MutableList<Shoe>> = MutableLiveData(mutableListOf())
-    val shoesList: LiveData<MutableList<Shoe>> = _shoesList
+    private var _shoesList: MutableLiveData<MutableList<Shoe>> =
+        MutableLiveData(initializeShoeList())
 
+    private fun initializeShoeList(): MutableList<Shoe> {
 
-   // private lateinit var _shoeName: MutableLiveData<String>
-   // var shoeName: LiveData<String> = _shoeName
-    var shoeName: MutableLiveData<String> = MutableLiveData("")
-
-    //  private lateinit var _shoeBrand: MutableLiveData<String>
-  //  var shoeBrand: LiveData<String> = _shoeBrand
-     var shoeBrand: MutableLiveData<String> = MutableLiveData("")
-
-  //  private lateinit var _shoeSize: MutableLiveData<String>
-  //  var shoeSize: LiveData<String> = _shoeSize
-     var shoeSize: MutableLiveData<String> = MutableLiveData("")
-
-
-    fun submitClicked(view: View, shoe:Shoe) {
-        shoesList.value?.add(shoe)
-        view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoesListFragment)
+        return mutableListOf(
+            Shoe("Sneakers 5.0", 7.0, "Nike", "Nike Sneakers"),
+            Shoe("Tennis", 8.0, "Adidas", "Adidas Tennis Shoes"),
+            Shoe("Walking", 6.5, "Sketchers", "Sketchers Go Walk!")
+        )
     }
 
-    fun cancelClicked(view: View) {
-        view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoesListFragment)
+    val shoesList: LiveData<MutableList<Shoe>> = _shoesList
+
+    var shoeName: MutableLiveData<String> = MutableLiveData("")
+
+    var shoeBrand: MutableLiveData<String> = MutableLiveData("")
+
+    var shoeSize: MutableLiveData<String> = MutableLiveData("")
+
+    var shoeDescription: MutableLiveData<String> = MutableLiveData("")
+
+    fun submitClicked(index: Int) {
+        if (index == -1) {
+            shoesList.value?.add(
+                Shoe(
+                    shoeName.value ?: EMPTY_STRING,
+                    shoeSize.value.toString().toDouble(),
+                    shoeBrand.value ?: EMPTY_STRING,
+                    shoeDescription.value ?: EMPTY_STRING
+                )
+            )
+        } else {
+            val shoe = shoesList.value?.get(index)
+            if (shoe != null) {
+                shoeName.value?.let {
+                    shoe.name = it
+                }
+                shoeSize.value?.let {
+                    shoe.size = it.toDouble()
+                }
+                shoeBrand.value?.let {
+                    shoe.company = it
+                }
+                shoeDescription.value?.let {
+                    shoe.description = it
+                }
+            }
+        }
+        clearShoeData()
+
+    }
+
+    fun cancelClicked() {
+        clearShoeData()
+
+    }
+
+    fun clearShoeData() {
+        shoeName.value = EMPTY_STRING
+        shoeSize.value = EMPTY_STRING
+        shoeBrand.value = EMPTY_STRING
+        shoeDescription.value = EMPTY_STRING
+    }
+
+    companion object SHOE {
+        const val EMPTY_STRING = ""
     }
 }

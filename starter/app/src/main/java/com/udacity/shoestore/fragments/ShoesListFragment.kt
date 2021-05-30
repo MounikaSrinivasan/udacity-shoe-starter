@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
@@ -17,12 +18,7 @@ import com.udacity.shoestore.viewmodels.ShoeViewModel
 class ShoesListFragment : Fragment() {
 
 
-    private lateinit var shoeVM: ShoeViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        shoeVM = ViewModelProvider(this.requireActivity()).get(ShoeViewModel::class.java)
-    }
+    private val shoeVM: ShoeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,8 +33,6 @@ class ShoesListFragment : Fragment() {
         )
 
 
-      //  val item:View = LayoutInflater.from(this.activity).inflate(R.layout.fragment_shoe_list_item, binding.shoeslist, false);
-
         shoeVM.shoesList.value?.forEachIndexed { index, shoe ->
             val item = DataBindingUtil.inflate<FragmentShoeListItemBinding>(
                 inflater,
@@ -50,7 +44,6 @@ class ShoesListFragment : Fragment() {
             item.textShoeName.text = shoe.name
             item.textBrandName.text = shoe.company
 
-
             item.shoeDetails.setOnClickListener {
                 view?.findNavController()
                     ?.navigate(ShoesListFragmentDirections.actionShoesListFragmentToShoeDetailFragment(index))
@@ -59,11 +52,9 @@ class ShoesListFragment : Fragment() {
             binding.shoeslist.addView(item.root)
         }
 
-
-
-
         binding.fabButton.setOnClickListener {
-            view?.findNavController()?.navigate(ShoesListFragmentDirections.actionShoesListFragmentToShoeDetailFragment(-1)) //R.id.action_shoesListFragment_to_shoeDetailFragment)
+            shoeVM.clearShoeData()
+            view?.findNavController()?.navigate(ShoesListFragmentDirections.actionShoesListFragmentToShoeDetailFragment(-1))
         }
         return binding.root
     }

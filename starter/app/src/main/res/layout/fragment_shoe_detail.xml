@@ -51,7 +51,8 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/textShoeName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shoeNameHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/shoeNameHeader"
+        android:autofillHints="@string/name" />
 
     <TextView
         android:id="@+id/textShoeSize"
@@ -74,7 +75,8 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/editTextShoeName"
         app:layout_constraintTop_toBottomOf="@+id/editTextShoeName"
-        tools:layout_editor_absoluteY="241dp" />
+        tools:layout_editor_absoluteY="241dp"
+        android:autofillHints="@string/size" />
 
     <TextView
         android:id="@+id/textBrandName"
@@ -116,22 +118,23 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="376dp"
         android:ems="8"
+        android:text="@={ShoeVM.shoeDescription}"
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/textDescription"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/textDescription"
-        app:layout_constraintEnd_toEndOf="@+id/editTextBrandName" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextBrandName"
+        android:autofillHints="@string/description" />
 
 
     <Button
         android:id="@+id/button_cancel_action"
         android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         style="@style/ButtonStyle"
         android:text="@string/cancel"
-        android:onClick="@{(view) -> ShoeVM.cancelClicked(view)}"
+        android:onClick="@{(view) -> shoeHandler.cancelClicked(view)}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textDescription"
         app:layout_constraintStart_toStartOf="@+id/textDescription" />
@@ -139,13 +142,13 @@
     <Button
         android:id="@+id/button_submit_action"
         android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         style="@style/ButtonStyle"
         android:text="@string/submit"
-        android:onClick="@{(view) -> shoeHandler.submitClicked(view)}"
         android:clickable="@{ShoeVM.shoeName.toString().length()>0 &amp;&amp; ShoeVM.shoeSize.toString().length()>0 &amp;&amp; ShoeVM.shoeBrand.toString().length()>0}"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDescription"
+        android:onClick="@{(view) -> shoeHandler.submitClicked(view)}"
+        app:layout_constraintBottom_toBottomOf="@+id/button_cancel_action"
+        app:layout_constraintTop_toTopOf="@+id/button_cancel_action"
         app:layout_constraintEnd_toEndOf="@+id/editTextDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

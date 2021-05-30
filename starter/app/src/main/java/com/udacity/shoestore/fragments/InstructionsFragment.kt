@@ -1,10 +1,8 @@
 package com.udacity.shoestore.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
@@ -15,6 +13,13 @@ class InstructionsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true);
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu)
+    {
+        val item: MenuItem = menu.findItem (R.id.loginFragment);
+        item.isVisible = false;
     }
 
     override fun onCreateView(

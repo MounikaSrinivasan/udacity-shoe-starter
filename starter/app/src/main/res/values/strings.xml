@@ -24,4 +24,9 @@
     <string name="cancel">Cancel</string>
     <string name="submit">Submit</string>
     <string name="shoe_details">Details</string>
+    <string name="required_field">Required Field!</string>
+    <string name="invalid_email">Invalid Email!</string>
+    <string name="invalid_password">Passwords should be atleast 6 characters in length.</string>
+    <string name="welcome">Welcome</string>
+
 </resources>

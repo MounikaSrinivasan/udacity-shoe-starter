@@ -32,17 +32,24 @@
                 app:layout_constraintTop_toBottomOf="@+id/image_logo" />
 
 
-            <EditText
-                android:id="@+id/editTextTextEmailAddress"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutEmailAddress"
                 android:layout_width="@dimen/login_width"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/email_hint"
-                android:ems="10"
                 android:hint="@string/email_hint"
-                android:inputType="textEmailAddress"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emailText" />
+                app:layout_constraintTop_toBottomOf="@+id/emailText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextTextEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/passwordText"
@@ -52,19 +59,27 @@
                 android:text="@string/password_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmailAddress" />
 
-            <EditText
-                android:id="@+id/editTextTextPassword"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPassword"
                 android:layout_width="@dimen/login_width"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/password_hint"
-                android:ems="10"
                 android:hint="@string/password_hint"
-                android:inputType="textPassword"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+                app:layout_constraintTop_toBottomOf="@+id/passwordText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/loginButton"
@@ -72,10 +87,11 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 android:layout_marginTop="25dp"
+                android:enabled="false"
                 android:text="@string/login_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword" />
 
             <TextView
                 android:id="@+id/newUserText"
@@ -95,6 +111,7 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 android:layout_marginTop="16dp"
+                android:enabled="false"
                 android:text="@string/new_user_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

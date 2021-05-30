@@ -59,8 +59,6 @@ class MainActivity : AppCompatActivity() {
         val loggedIn = SharedPreferencesManager.read(LOGGEDIN)
         if(loggedIn) {
             navController.navigate(R.id.action_loginFragment_to_welcomeFragment)
-           // supportActionBar?.setDisplayHomeAsUpEnabled(false)
-           // supportActionBar?.setDisplayShowTitleEnabled(false)
         }
 
 
@@ -115,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                 mainVM.updateToolbar(false)
                 mainVM.updateHomeAsUpDisplay(false)
             } else {
-                mainVM.updateHomeAsUpDisplay(destination.label != "Welcome")
+                mainVM.updateHomeAsUpDisplay(destination.label != getString(R.string.welcome))
                 mainVM.updateToolbar(true)
             }
         }
