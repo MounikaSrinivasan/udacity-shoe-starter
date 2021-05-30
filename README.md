@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # README Template
 
 Below is a template provided for use when building your README file for students.
@@ -52,5 +51,3 @@ Include all items used to build project.
 
 ## License
 =======
-# shoe-store-app
->>>>>>> c988ee3fa5c901ef632cb6a6b4a9c87078a2896e
