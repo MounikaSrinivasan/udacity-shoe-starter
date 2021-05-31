@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- For the individual layout for each Shoe item to be displayed on the ShoeList screen, a ConstraintLayout would be ideal since the textviews -->
+<!-- and settings icon to navigate to detail view for respective Shoe item need to be aligned relative to each other here-->
 <layout>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

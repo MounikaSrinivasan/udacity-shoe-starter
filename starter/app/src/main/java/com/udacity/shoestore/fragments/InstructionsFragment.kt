@@ -16,12 +16,6 @@ class InstructionsFragment : Fragment() {
         setHasOptionsMenu(true);
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu)
-    {
-        val item: MenuItem = menu.findItem (R.id.loginFragment);
-        item.isVisible = false;
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The Login screen layout can be designed simply using a Linear Layout, or a Constraint layout could be used as in here-->
+<!-- The constraints added in here, help with the alignment since there are a lot of views on the screen-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 

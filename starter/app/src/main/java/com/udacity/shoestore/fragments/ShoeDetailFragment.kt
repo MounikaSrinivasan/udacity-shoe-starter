@@ -48,12 +48,6 @@ class ShoeDetailFragment : Fragment(), ShoeActionHandler {
         return binding.root
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu)
-    {
-        val item: MenuItem  = menu.findItem (R.id.loginFragment);
-        item.isVisible = false;
-    }
-
     override fun submitClicked(view: View) {
         shoeVM.submitClicked(index)
         view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoesListFragment)
